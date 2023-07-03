@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <div class="Container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="Header">
+                <h2>{{ form.title }}</h2>
+            </div>
+            <div class="Body">
+                <div class="Note">
+                    <div class="DateTime">
+                        <div>
+                            <label>updated:</label>
+                            <h4>{{ note.updated }}</h4>
+                        </div>
+                        <div>
+                            <label>created:</label>
+                            <h4>{{ note.created }}</h4>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    {{ form.body }}
+                </div>
+            </div>
+            <div class="Footer">
+                <a href="{% url 'noteList' %}">
+                    GoBack
+                </a>
+                <input type="submit" value="Save">
+            </div>
+        </form>
+    </div>
+{% endblock content %}

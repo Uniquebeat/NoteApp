@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <div class="Container">
+        <div class="Header">
+            <h2>Notes</h2>
+        </div>
+        <div class="Body">
+            <ul>
+                <div class="Notes">
+                    <a href="{% url 'noteCreate' %}">
+                        <h3 style="text-align: center;">Create New Note</h3>
+                    </a>
+                </div>
+                <br>
+                <hr>
+                <br>
+                {% for note in notes %}
+                    <div class="Notes">
+                        <a href="{% url 'noteDetail' note.pk %}">
+                            <h3>{{ note }}</h3>
+                        </a>
+                    </div>
+                    <br>
+                {% empty %}
+                    <h2 style="color: rgb(165, 215, 232); text-align: center;">No note for now!</h2>
+                    <h2 style="color: rgb(165, 215, 232); text-align: center;">Start by creating one!</h2>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

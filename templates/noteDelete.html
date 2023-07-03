@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <div class="DeleteContainer">
+        <form method="post">
+            {% csrf_token %}
+            <div class="Header">
+                <h2>Delete '{{ note.title }}' ?</h2>
+            </div>
+            <div class="DeleteBody">
+                <h3 style="color: rgb(165, 215, 232); text-align: center;">Are you sure you want to delete '{{ note.title }}'?</h3>
+            </div>
+            <div class="Footer">
+                <a href="{% url 'noteList' %}">
+                    GoBack
+                </a>
+                <input type="submit" value="Confirm">
+            </div>
+        </form>
+    </div>
+{% endblock content %}
